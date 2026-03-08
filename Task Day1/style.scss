@@ -1,0 +1,63 @@
+// Variables
+$primary-color: #3498db;
+$secondary-color: #e74c3c;
+
+// Main Section
+.main {
+  .main-title {
+    // primary color using nesting
+    color: $primary-color;
+  }
+
+  .main-subtitle {
+    // secondary color using nesting
+    color: $secondary-color;
+  }
+
+  .main-btn {
+    background-color: $primary-color;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+
+    // hover using nesting
+    &:hover {
+      background-color: $secondary-color;
+    }
+  }
+}
+
+// Font sizes using @each
+$fonts: 18px, 16px, 14px;
+
+@each $size in $fonts {
+  .font-#{$size} {
+    font-size: $size;
+  }
+}
+
+// Finish button
+.finish-btn {
+  padding: 12px;
+  background-color: $primary-color;
+  color: white;
+  border: none;
+  cursor: pointer;
+  width: auto;
+}
+
+// SCSS media queries
+// tablet
+@media (max-width: 768px) {
+  .finish-btn {
+    width: 50%;
+  }
+}
+
+// mobile
+@media (max-width: 480px) {
+  .finish-btn {
+    width: 100%;
+  }
+}

@@ -1,0 +1,48 @@
+.main .main-title {
+  color: #3498db;
+}
+.main .main-subtitle {
+  color: #e74c3c;
+}
+.main .main-btn {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.main .main-btn:hover {
+  background-color: #e74c3c;
+}
+
+.font-18px {
+  font-size: 18px;
+}
+
+.font-16px {
+  font-size: 16px;
+}
+
+.font-14px {
+  font-size: 14px;
+}
+
+.finish-btn {
+  padding: 12px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  cursor: pointer;
+  width: auto;
+}
+
+@media (max-width: 768px) {
+  .finish-btn {
+    width: 50%;
+  }
+}
+@media (max-width: 480px) {
+  .finish-btn {
+    width: 100%;
+  }
+}/*# sourceMappingURL=style.css.map */
