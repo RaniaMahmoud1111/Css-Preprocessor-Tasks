@@ -1,0 +1,33 @@
+$form-gap: 20px;
+
+.form-container {
+  width: 80%;
+  margin: auto;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr; // small screens
+  gap: $form-gap;
+
+  input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 100%;
+  }
+}
+
+/* Medium Screens */
+@media (min-width: 768px) {
+  .form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Large Screens */
+@media (min-width: 1200px) {
+  .form {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
