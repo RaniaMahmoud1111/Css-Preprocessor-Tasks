@@ -1,0 +1,58 @@
+/*  1. Row container */
+.row {
+  width: 100%;
+  margin-left: -10px; /* compensate for padding */
+  margin-right: -10px;
+  /* clearfix */
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+/*   2. Grid column generator  */
+.generate-columns(@prefix: "") {
+  .loop(@i) when (@i <= 12) {
+
+    // If prefix is empty
+    .col-@{i} when (@prefix = "") {
+      width: (@i / 12 * 100%);
+      float: left;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    // If prefix exists
+    .col-@{prefix}-@{i} when not (@prefix = "") {
+      width: (@i / 12 * 100%);
+      float: left;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    .loop(@i + 1);
+  }
+
+  .loop(1);
+}
+
+/* 3. Generate all columns  */
+
+/* Default columns (col-1 .. col-12) */
+.generate-columns();  
+
+/* Small screens (col-sm-1 .. col-sm-12) */
+@media (min-width: 576px) {
+  .generate-columns(sm);
+}
+
+/* Medium screens (col-md-1 .. col-md-12) */
+@media (min-width: 768px) {
+  .generate-columns(md);
+}
+
+/* Large screens (col-lg-1 .. col-lg-12) */
+@media (min-width: 1200px) {
+  .generate-columns(lg);
+}
