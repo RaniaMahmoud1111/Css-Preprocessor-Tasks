@@ -1,0 +1,117 @@
+:root {
+  --bg: #f0ead8;
+  --card: #e8e0cc;
+  --border: #999;
+  --bar: #c8c0a8;
+  --c1: #556655;
+  --c2: #889988;
+  --c3: #aabba8;
+  --c4: #ccdacc;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); font-family: Georgia, serif; padding: 20px; }
+
+.bar   { height: 7px; background: var(--bar); border-radius: 4px; }
+.circ  { border-radius: 50%; flex-shrink: 0; }
+.box   { background: var(--card); border-radius: 6px; }
+
+/* sizes helper */
+.c1-lg { background: var(--c1); width: 50px; height: 50px; }
+.c2-md { background: var(--c2); width: 34px; height: 34px; }
+.c3-sm { background: var(--c3); width: 26px; height: 26px; }
+.c4-xs { background: var(--c4); width: 22px; height: 22px; }
+
+.w-28 { width:28%; }
+.w-50 { width:50%; }
+.w-55 { width:55%; }
+.w-60 { width:60%; }
+.w-65 { width:65%; }
+.w-70 { width:70%; }
+.w-75 { width:75%; }
+.w-80 { width:80%; }
+.w-85 { width:85%; }
+.w-90 { width:90%; }
+
+/* 3-column grid */
+.page {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 0.8fr;
+  gap: 16px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* card with border */
+.card {
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+  background: var(--card);
+  margin-bottom: 16px;
+}
+
+/* top: avatars + text */
+.top-row { display: flex; gap: 12px; margin-bottom: 14px; }
+.av-col  { display: flex; flex-direction: column; gap: 8px; }
+.card-text p { font-size: 0.78rem; line-height: 1.6; color: #444; }
+
+/* grids */
+.g3 { display: grid; grid-template-columns: repeat(3,1fr); gap:6px; margin-bottom:12px; }
+.g2 { display: grid; grid-template-columns: 1fr 1fr; gap:6px; margin-bottom:12px; }
+.g4 { display: grid; grid-template-columns: repeat(4,1fr); gap:8px; }
+.cell     { height: 36px; }
+.img-cell { aspect-ratio: 4/3; border-radius: 6px; }
+.tag      { height: 20px; }
+
+/* stats */
+.stats { display: grid; grid-template-columns: repeat(3,1fr); gap:8px; margin-bottom:14px; }
+.stat  { display:flex; flex-direction:column; align-items:center; gap:5px; }
+.sbars { width:100%; display:flex; flex-direction:column; gap:3px; }
+
+/* lorem row */
+.lorem { display:flex; align-items:center; gap:10px; }
+.lorem span { font-style:italic; font-size:.95rem; white-space:nowrap; }
+.lorem .bar { flex:1; }
+
+/* video row */
+.vrow { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:14px; }
+.vbox { aspect-ratio:16/10; display:flex; align-items:center; justify-content:center;
+        background:var(--bar); border-radius:6px; }
+.play { width:0; height:0; border-top:12px solid transparent;
+        border-bottom:12px solid transparent; border-left:20px solid #555; margin-left:4px; }
+.tlines { display:flex; flex-direction:column; gap:5px; }
+
+/* circles row */
+.crow { display:flex; gap:10px; align-items:center; margin-bottom:12px; flex-wrap:wrap; }
+.crow .bar { flex:1; min-width:20px; }
+
+/* center stats */
+.cs { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+.cs-item { display:flex; flex-direction:column; align-items:center; gap:4px; }
+.cs-item .bar { width:100%; }
+
+/* sidebar */
+.side-top { display:flex; gap:8px; align-items:center; margin-bottom:8px; }
+.mini-c   { display:flex; gap:5px; margin-bottom:8px; }
+.feed     { display:flex; flex-direction:column; gap:12px; margin-bottom:16px; }
+.fi       { display:flex; gap:8px; align-items:flex-start; }
+.fi .tlines { flex:1; }
+.ml       { font-style:italic; font-size:.95rem; margin-bottom:8px; }
+
+/* lines util */
+.lines { display:flex; flex-direction:column; gap:5px; margin-bottom:12px; }
+
+/* responsive */
+@media (max-width: 860px) {
+  .page { grid-template-columns: 1fr 1fr; }
+  .sidebar { grid-column: 1 / -1; display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .side-card-wrap { grid-column: 1 / -1; }
+}
+@media (max-width: 540px) {
+  .page { grid-template-columns: 1fr; }
+  .sidebar { grid-template-columns: 1fr; }
+  .side-card-wrap { grid-column: auto; }
+  .vrow { grid-template-columns: 1fr; }
+  .g4 { grid-template-columns: repeat(2,1fr); }
+}
